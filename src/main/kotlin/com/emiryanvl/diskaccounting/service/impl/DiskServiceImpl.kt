@@ -5,7 +5,7 @@ import com.emiryanvl.diskaccounting.dto.response.DiskResponse
 import com.emiryanvl.diskaccounting.entity.DiskEntity
 import com.emiryanvl.diskaccounting.repository.DiskRepository
 import com.emiryanvl.diskaccounting.service.DiskService
-import exception.NotFoundException.Companion.notFoundException
+import com.emiryanvl.diskaccounting.exception.NotFoundException.Companion.notFoundException
 import org.springframework.stereotype.Service
 
 @Service

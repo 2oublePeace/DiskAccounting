@@ -1,4 +1,4 @@
-package exception
+package com.emiryanvl.diskaccounting.exception
 
 import java.text.MessageFormat
 import java.util.function.Supplier
