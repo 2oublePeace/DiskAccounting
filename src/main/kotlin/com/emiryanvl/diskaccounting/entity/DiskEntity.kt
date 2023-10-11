@@ -3,8 +3,8 @@ package com.emiryanvl.diskaccounting.entity
 import jakarta.persistence.*
 
 @Entity
-@Table(name = "_city")
-class City (
+@Table(name = "_disk")
+class DiskEntity (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
