@@ -1,7 +1,5 @@
 FROM openjdk:17-jdk-slim
 
-COPY build/libs/LookingBooking-0.0.1-SNAPSHOT.jar /LookingBooking.jar
+COPY build/libs/DiskAccounting-0.0.1-SNAPSHOT.jar /DiskAccounting.jar
 
-EXPOSE 8080
-
-CMD ["java", "-jar", "/LookingBooking.jar"]
+CMD ["java", "-jar", "/DiskAccounting.jar"]
