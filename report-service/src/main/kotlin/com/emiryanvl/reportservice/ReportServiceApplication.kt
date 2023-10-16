@@ -16,12 +16,3 @@ class ReportServiceApplication
 fun main(args: Array<String>) {
 	runApplication<ReportServiceApplication>(*args)
 }
-
-@RestController
-@ComponentScan("com.emiryanvl.mainservice")
-class ReportController(val diskService: DiskService) {
-	@GetMapping("/")
-	fun getReport() : ResponseEntity<List<DiskResponse>> {
-		return ResponseEntity<List<DiskResponse>>(diskService.getAll(), HttpStatus.OK)
-	}
-}
