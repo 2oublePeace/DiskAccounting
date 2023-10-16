@@ -1,11 +1,11 @@
-package com.emiryanvl.gateway
+package com.emiryanvl.reportservice
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class GatewayApplication
+class ReportServiceApplication
 
 fun main(args: Array<String>) {
-    runApplication<GatewayApplication>(*args)
+	runApplication<ReportServiceApplication>(*args)
 }

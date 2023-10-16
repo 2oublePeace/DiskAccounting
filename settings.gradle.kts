@@ -1,2 +1,2 @@
 rootProject.name = "DiskAccounting"
-include("main-service", "gateway")
+include("main-service", "report-service", "gateway")

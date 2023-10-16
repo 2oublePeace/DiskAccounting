@@ -1,13 +1,13 @@
-package com.emiryanvl.gateway
+package com.emiryanvl.reportservice
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class GatewayApplicationTests {
+class ReportServiceApplicationTests {
 
-    @Test
-    fun contextLoads() {
-    }
+	@Test
+	fun contextLoads() {
+	}
 
 }

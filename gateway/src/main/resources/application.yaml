@@ -1,0 +1,22 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: main
+          uri: http://main:8081
+          predicates:
+            - Path=/disk/**
+          filters:
+            - RewritePath=/disk/(?<path>.*), /$\{path}
+            - RemoveRequestHeader= Cookie, SetCookie
+        - id: report
+          uri: http://report:8081
+          predicates:
+            - Path=/report/**
+          filters:
+            - RewritePath=/report/(?<path>.*), /$\{path}
+            - RemoveRequestHeader= Cookie, SetCookie
