@@ -7,7 +7,7 @@ COPY . .
 
 RUN gradle :report-service:bootJar
 
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jre-alpine
 
 WORKDIR /app
 
