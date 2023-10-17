@@ -1,5 +1,15 @@
+FROM gradle:jdk17 as builder
+
+WORKDIR /app
+
+COPY . .
+
+RUN gradle :gateway:bootJar
+
 FROM openjdk:17-jdk-slim
 
-COPY build/libs/gateway-0.0.1-SNAPSHOT.jar /gateway.jar
+WORKDIR /app
 
-CMD ["java", "-jar", "/gateway.jar"]
+COPY --from=builder /app/gateway/build/libs/*.jar ./gateway.jar
+
+CMD ["java", "-jar", "gateway.jar"]

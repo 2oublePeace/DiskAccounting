@@ -1,5 +1,16 @@
+# Этап сборки
+FROM gradle:jdk17 as builder
+
+WORKDIR /app
+
+COPY . .
+
+RUN gradle :report-service:bootJar
+
 FROM openjdk:17-jdk-slim
 
-COPY build/libs/report-service-0.0.1-SNAPSHOT.jar /report-service.jar
+WORKDIR /app
 
-CMD ["java", "-jar", "/report-service.jar"]
+COPY --from=builder /app/report-service/build/libs/*.jar ./report-service.jar
+
+CMD ["java", "-jar", "report-service.jar"]
