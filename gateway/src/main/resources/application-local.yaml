@@ -5,14 +5,14 @@ spring:
     gateway:
       routes:
         - id: main
-          uri: http://main:8081
+          uri: http://localhost:8081
           predicates:
             - Path=/main/**
           filters:
             - RewritePath=/main/(?<path>.*), /$\{path}
             - RemoveRequestHeader= Cookie, SetCookie
         - id: report
-          uri: http://report:8082
+          uri: http://localhost:8082
           predicates:
             - Path=/report/**
           filters:

@@ -1,4 +1,3 @@
-# Этап сборки
 FROM gradle:jdk17 as builder
 
 WORKDIR /app
