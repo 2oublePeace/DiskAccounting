@@ -1,0 +1,3 @@
+upload-directory: /app/disk-accounting-downloads/
+server:
+  port: 8080

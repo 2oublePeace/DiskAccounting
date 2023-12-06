@@ -1,0 +1,3 @@
+upload-directory: /home/emiryanvl/disk-accounting-downloads/
+server:
+  port: 8080

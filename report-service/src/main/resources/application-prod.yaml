@@ -1,3 +1,4 @@
+storage-url: http://storage:8080/storage/upload
 report-url: http://gateway:8083/main/disk
 server:
   port: 8082

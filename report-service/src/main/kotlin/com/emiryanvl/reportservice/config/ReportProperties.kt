@@ -6,4 +6,7 @@ import org.springframework.stereotype.Component
 class ReportProperties {
     @Value("\${report-url}")
     lateinit var reportUrl: String
+
+    @Value("\${storage-url}")
+    lateinit var storageUrl: String
 }
