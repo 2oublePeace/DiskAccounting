@@ -25,6 +25,17 @@ services:
     expose:
       - 8081
 
+  storage:
+    build:
+      context: .
+      dockerfile: storage-service/Dockerfile
+    depends_on:
+      - report
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    expose:
+      - 8080
+
   report:
     build:
       context: .
