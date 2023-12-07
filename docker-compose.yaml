@@ -12,9 +12,7 @@ services:
       - 5432
 
   main:
-    build:
-      context: .
-      dockerfile: main-service/Dockerfile
+    image: disk-accounting-lab-4_main
     depends_on:
       - db
     environment:
@@ -26,9 +24,7 @@ services:
       - 8081
 
   storage:
-    build:
-      context: .
-      dockerfile: storage-service/Dockerfile
+    image: disk-accounting-lab-4_storage
     depends_on:
       - report
     environment:
@@ -37,9 +33,7 @@ services:
       - 8080
 
   report:
-    build:
-      context: .
-      dockerfile: report-service/Dockerfile
+    image: disk-accounting-lab-4_report
     depends_on:
       - main
     environment:
@@ -48,9 +42,7 @@ services:
       - 8082
 
   gateway:
-    build:
-      context: .
-      dockerfile: gateway/Dockerfile
+    image: disk-accounting-lab-4_gateway
     depends_on:
       - main
       - report
