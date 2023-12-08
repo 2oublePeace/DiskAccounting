@@ -1,3 +1,6 @@
-upload-directory: /home/emiryanvl/disk-accounting-downloads/
+minio:
+  url: http://localhost:9000
+  access-key: minioadmin
+  secret-key: minioadmin
 server:
   port: 8080

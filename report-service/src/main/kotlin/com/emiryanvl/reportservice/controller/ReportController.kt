@@ -17,8 +17,7 @@ class ReportController(val reportProperties: ReportProperties, val csvService: C
 
     private val logger = LoggerFactory.getLogger(ReportController::class.java)
 
-    @GetMapping   // Реализуйте ваш способ генерации уникального идентификатора
-        // Например, можно использовать UUID
+    @GetMapping
     fun getReport(): ResponseEntity<String> {
         val disks = RestTemplate().getForObject(reportProperties.reportUrl, String::class.java).toString()
         val response = csvService.uploadCsvFile(reportProperties.storageUrl, csvService.convertJsonToCsv(disks))
