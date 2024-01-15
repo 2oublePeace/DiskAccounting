@@ -1,3 +1,6 @@
+logging:
+  level:
+    org.springframework.cloud.gateway.handler.RoutePredicateHandlerMapping: DEBUG
 spring:
   application:
     name: gateway
