@@ -1,3 +1,14 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        saveDisks-out-0:
+          destination: DisksExchange
+  rabbitmq:
+    username: ${RABBITMQ_USERNAME}
+    password: ${RABBITMQ_PASSWORD}
+    host: ${RABBITMQ_HOST}
+    port: ${RABBITMQ_PORT}
 storage-url: http://storage:8080/storage/upload
 report-url: http://gateway:8083/main/disk
 server:

@@ -1,3 +1,14 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        saveDisks-out-0:
+          destination: DisksExchange
+  rabbitmq:
+    username: guest
+    password: guest
+    host: localhost
+    port: 5672
 storage-url: http://localhost:8080/storage/upload
 report-url: http://localhost:8081/disk
 server:

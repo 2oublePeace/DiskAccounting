@@ -1,3 +1,18 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        saveDisks-in-0:
+          destination: DisksExchange
+          group: disks-updates
+          consumer:
+            concurrency: 10
+            max-attempts: 3
+  rabbitmq:
+    username: ${RABBITMQ_USERNAME}
+    password: ${RABBITMQ_PASSWORD}
+    host: ${RABBITMQ_HOST}
+    port: ${RABBITMQ_PORT}
 minio:
   url: http://minio:9000
   access-key: minioadmin

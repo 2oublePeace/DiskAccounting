@@ -11,6 +11,12 @@ services:
     expose:
       - 5432
 
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
   minio:
     image: minio/minio
     ports:
@@ -24,9 +30,7 @@ services:
     command: server /data --console-address ":9001"
 
   main:
-    build:
-      context: .
-      dockerfile: main-service/Dockerfile
+    build: ./main-service
     depends_on:
       - db
     environment:
@@ -38,31 +42,35 @@ services:
       - 8081
 
   storage:
-    build:
-      context: .
-      dockerfile: storage-service/Dockerfile
+    build: ./storage-service
     depends_on:
       - report
+      - rabbitmq
     environment:
       - SPRING_PROFILES_ACTIVE=prod
+      - RABBITMQ_USERNAME=guest
+      - RABBITMQ_PASSWORD=guest
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
     expose:
       - 8080
 
   report:
-    build:
-      context: .
-      dockerfile: report-service/Dockerfile
+    build: ./report-service
     depends_on:
       - main
+      - rabbitmq
     environment:
       - SPRING_PROFILES_ACTIVE=prod
+      - RABBITMQ_USERNAME=guest
+      - RABBITMQ_PASSWORD=guest
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
     expose:
       - 8082
 
   gateway:
-    build:
-      context: .
-      dockerfile: gateway/Dockerfile
+    build: ./gateway
     depends_on:
       - main
       - report
